@@ -215,12 +215,6 @@ http://localhost:8501
 
 ---
 
-# Live Demo
-
-[Live Demo](https://ai-business-analytics-dashboard-fsvu2gr6odbjshe5bdvsgu.streamlit.app/)
-
----
-
 # Connect With Me
 
 - LinkedIn: https://www.linkedin.com/in/yahya-sleiman-6b742a356
