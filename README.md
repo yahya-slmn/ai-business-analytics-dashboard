@@ -77,7 +77,6 @@ ai-business-analytics-dashboard/
 │   ├── 05_anomaly_detection.png
 │   └── 06_business_insights.png
 │
-├── utils/
 │
 ├── app.py
 ├── requirements.txt
