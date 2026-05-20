@@ -4,6 +4,8 @@
 
 Interactive business analytics application for KPI tracking, sales & profit analysis, anomaly detection, and executive dashboard reporting using Python technologies.
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=streamlit)](https://ai-business-analytics-dashboard-fsvu2gr6odbjshe5bdvsgu.streamlit.app/)
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
