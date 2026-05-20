@@ -30,6 +30,10 @@ st.markdown(
         );
         color: #e2e2e2;
     }
+    /* Global Text */
+    html, body, [class*="css"]  {
+        color: #e2e2e2 !important;
+    }
 
     /* Sidebar */
     section[data-testid="stSidebar"] {
@@ -126,6 +130,44 @@ st.markdown(
     /* Horizontal Divider */
     hr {
         border-color: rgba(226,226,226,0.1);
+    }
+
+    /* Streamlit Labels */
+    label, p, span, div {
+        color: #e2e2e2 !important;
+    }
+    
+    /* Metric Labels */
+    [data-testid="stMetricLabel"] {
+        color: #bfc9d4 !important;
+    }
+    
+    /* Metric Values */
+    [data-testid="stMetricValue"] {
+        color: #ffffff !important;
+    }
+    
+    /* File uploader text */
+    [data-testid="stFileUploader"] {
+        color: #e2e2e2 !important;
+    }
+
+    /* Mobile Responsive Titles */
+    @media (max-width: 768px) {
+    
+        h1 {
+            font-size: 2.4rem !important;
+        }
+    
+        h2 {
+            font-size: 1.8rem !important;
+        }
+    
+        .block-container {
+            padding-top: 2rem !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
     }
 
     </style>
