@@ -434,9 +434,9 @@ if date_col:
         )
     
     fig_trend.update_traces(
-    line=dict(
-        color="#2d8ab8",
-        width=4
+        line=dict(
+            color="#2d8ab8",
+            width=4
         ),
         marker=dict(
             size=9,
@@ -455,15 +455,47 @@ if date_col:
         )
     )
     fig_trend.update_layout(
-            height=500,
-            plot_bgcolor="rgba(15,23,42,0.75)",
-            paper_bgcolor="rgba(15,23,42,0.75)",
-            font_color="#e2e2e2",
-            title_font_size=22,
-            xaxis_title="Month",
-            yaxis_title=selected_value.title(),
-            hovermode="x unified"
-        )
+        height=500,
+        plot_bgcolor="rgba(15,23,42,0.75)",
+        paper_bgcolor="rgba(15,23,42,0.75)",
+        font=dict(
+            color="#e2e2e2"
+        ),
+        title=dict(
+            text=f"{selected_value.title()} Monthly Trend",
+            font=dict(
+                color="#ffffff",
+                size=22
+            )
+        ),
+        legend=dict(
+            font=dict(
+                color="#e2e2e2",
+                size=12
+            )
+        ),
+        xaxis=dict(
+            title="Month",
+            tickfont=dict(
+                color="#e2e2e2"
+            ),
+            titlefont=dict(
+                color="#e2e2e2"
+            ),
+            gridcolor="rgba(226,226,226,0.12)"
+        ),
+        yaxis=dict(
+            title=selected_value.title(),
+            tickfont=dict(
+                color="#e2e2e2"
+            ),
+            titlefont=dict(
+                color="#e2e2e2"
+            ),
+            gridcolor="rgba(226,226,226,0.12)"
+        ),
+        hovermode="x unified"
+    )
 
     st.plotly_chart(fig_trend, use_container_width=True)
 
@@ -511,12 +543,24 @@ if categorical_cols:
         )
 
         fig_bar.update_layout(
-                height=500,
-                plot_bgcolor="rgba(15,23,42,0.75)",
-                paper_bgcolor="rgba(15,23,42,0.75)",
-                font_color="#e2e2e2",
-                title_font_size=22
-            )
+        height=500,
+        plot_bgcolor="rgba(15,23,42,0.75)",
+        paper_bgcolor="rgba(15,23,42,0.75)",
+        font=dict(color="#e2e2e2"),
+        title=dict(
+            font=dict(color="#ffffff", size=22)
+        ),
+    xaxis=dict(
+        tickfont=dict(color="#e2e2e2"),
+        titlefont=dict(color="#e2e2e2"),
+        gridcolor="rgba(226,226,226,0.12)"
+    ),
+    yaxis=dict(
+        tickfont=dict(color="#e2e2e2"),
+        titlefont=dict(color="#e2e2e2"),
+        gridcolor="rgba(226,226,226,0.12)"
+    )
+)
 
         fig_bar.update_layout(height=500)
 
@@ -540,12 +584,28 @@ if categorical_cols:
         )
 
         fig_pie.update_layout(
-                height=500,
-                plot_bgcolor="rgba(15,23,42,0.75)",
-                paper_bgcolor="rgba(15,23,42,0.75)",
-                font_color="#e2e2e2",
-                title_font_size=22
+        height=500,
+        plot_bgcolor="rgba(15,23,42,0.75)",
+        paper_bgcolor="rgba(15,23,42,0.75)",
+        font=dict(color="#e2e2e2"),
+        title=dict(
+            text=f"{selected_value.title()} Contribution",
+            font=dict(color="#ffffff", size=22)
+        ),
+        legend=dict(
+            font=dict(color="#e2e2e2", size=12)
+        )
+    )
+
+        fig_pie.update_traces(
+            textfont=dict(
+                color="#e2e2e2",
+                size=12
+            ),
+            marker=dict(
+                line=dict(color="#0f172a", width=2)
             )
+        )
 
         st.plotly_chart(fig_pie, use_container_width=True)
 
