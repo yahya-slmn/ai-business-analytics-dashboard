@@ -215,7 +215,7 @@ http://localhost:8501
 
 # Live Demo
 
-Streamlit deployment coming soon.
+[Live Demo](https://ai-business-analytics-dashboard-fsvu2gr6odbjshe5bdvsgu.streamlit.app/)
 
 ---
 
