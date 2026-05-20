@@ -2,9 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# --------------------------------------------------
 # PAGE CONFIG
-# --------------------------------------------------
 
 st.set_page_config(
     page_title="AI Business Analytics Dashboard",
@@ -12,9 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# --------------------------------------------------
-# CUSTOM STYLING
-# --------------------------------------------------
+# STYLING
 
 st.markdown(
     """
@@ -168,6 +164,23 @@ st.markdown(
             padding-left: 1rem !important;
             padding-right: 1rem !important;
         }
+        div[data-testid="metric-container"] {
+        margin-bottom: 16px !important;
+        padding: 16px !important;
+    }
+    
+        [data-testid="stMetricValue"] {
+            font-size: 2rem !important;
+        }
+    
+        [data-testid="stMetricLabel"] {
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+        }
+    
+        .stButton button {
+            width: 100% !important;
+        }
     }
 
     </style>
@@ -175,18 +188,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --------------------------------------------------
 # TITLE
-# --------------------------------------------------
 
 st.title("AI-Powered Business Analytics Dashboard")
 st.write(
     "Analyze sales and profit performance with interactive KPIs, trends, category analysis, and business insights."
 )
 
-# --------------------------------------------------
 # FILE UPLOAD
-# --------------------------------------------------
 
 uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
@@ -199,22 +208,13 @@ if st.button("Use Sample Business Dataset"):
 if uploaded_file is not None:
     st.session_state.df = pd.read_csv(uploaded_file)
 
-# --------------------------------------------------
 # LOAD DATA
-# --------------------------------------------------
 
 df = st.session_state.df
 
 if df is None:
     st.info("Upload a CSV file or use the sample dataset to begin analysis.")
     st.stop()
-
-# --------------------------------------------------
-# DATA PREPARATION
-# --------------------------------------------------
-# --------------------------------------------------
-# NUMBER FORMATTER
-# --------------------------------------------------
 
 def format_number(value):
 
@@ -243,7 +243,6 @@ else:
 
 numeric_cols = df.select_dtypes(include=["int64", "float64"]).columns.tolist()
 
-# Keep only Sales & Profit KPIs if available
 
 priority_metrics = []
 
@@ -264,9 +263,7 @@ if not numeric_cols:
     st.error("No numeric columns found in the uploaded dataset.")
     st.stop()
 
-# --------------------------------------------------
 # SIDEBAR
-# --------------------------------------------------
 
 st.sidebar.header("Dashboard Controls")
 
@@ -277,9 +274,7 @@ selected_value = st.sidebar.selectbox(
 
 filtered_df = df.copy()
 
-# --------------------------------------------------
 # DATE FILTER
-# --------------------------------------------------
 
 if date_col:
     min_date = filtered_df[date_col].min()
@@ -298,9 +293,7 @@ if date_col:
             (filtered_df[date_col] <= pd.to_datetime(end_date))
         ]
 
-# --------------------------------------------------
 # CATEGORY FILTER
-# --------------------------------------------------
 
 if categorical_cols:
 
@@ -335,18 +328,12 @@ if filtered_df.empty:
     st.warning("No data available for the selected filters.")
     st.stop()
 
-# --------------------------------------------------
-# FORMAT DISPLAY DATAFRAME
-# --------------------------------------------------
-
 display_df = filtered_df.copy()
 
 if date_col:
     display_df[date_col] = display_df[date_col].dt.strftime("%Y-%m-%d")
 
-# --------------------------------------------------
 # KPI OVERVIEW
-# --------------------------------------------------
 
 st.subheader("Executive KPI Overview")
 
@@ -403,9 +390,7 @@ else:
 
 st.divider()
 
-# --------------------------------------------------
 # DATASET PREVIEW
-# --------------------------------------------------
 
 st.subheader("Dataset Preview")
 
@@ -416,9 +401,7 @@ st.dataframe(
 
 st.divider()
 
-# --------------------------------------------------
 # TREND ANALYSIS
-# --------------------------------------------------
 
 trend_df = None
 
@@ -486,9 +469,7 @@ if date_col:
 
 st.divider()
 
-# --------------------------------------------------
 # CATEGORY PERFORMANCE ANALYSIS
-# --------------------------------------------------
 
 category_summary = None
 selected_category = None
@@ -570,9 +551,7 @@ if categorical_cols:
 
 st.divider()
 
-# --------------------------------------------------
 # ANOMALY DETECTION
-# --------------------------------------------------
 
 st.subheader("Anomaly Detection")
 
@@ -606,9 +585,7 @@ else:
 
 st.divider()
 
-# --------------------------------------------------
 # BUSINESS INSIGHTS
-# --------------------------------------------------
 
 st.subheader("AI-Style Business Insights")
 
@@ -667,9 +644,7 @@ for insight in insights:
 
 st.divider()
 
-# --------------------------------------------------
 # RECOMMENDATIONS
-# --------------------------------------------------
 
 st.subheader("Recommendations")
 
@@ -680,9 +655,7 @@ st.write("- Use trend analysis to support forecasting and strategic decision-mak
 
 st.divider()
 
-# --------------------------------------------------
 # DOWNLOAD FILTERED DATA
-# --------------------------------------------------
 
 st.subheader("Download Filtered Data")
 
@@ -695,9 +668,7 @@ st.download_button(
     mime="text/csv"
 )
 
-# --------------------------------------------------
 # FOOTER
-# --------------------------------------------------
 
 st.markdown(
     """
