@@ -219,7 +219,7 @@ http://localhost:8501
 
 - LinkedIn: https://www.linkedin.com/in/yahya-sleiman-6b742a356
 - GitHub: https://github.com/yahya-slmn
-
+- portfolio: https://yahya-datafolio.netlify.app/
 ---
 
 # Author
